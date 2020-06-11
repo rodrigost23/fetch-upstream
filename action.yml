@@ -13,6 +13,10 @@ inputs:
     description: 'The branch in your fork to push to'
     required: false
     default: 'master'
+  method:
+    description: 'The merge method. "merge" or "rebase"'
+    required: false
+    default: 'merge'
 runs:
   using: 'docker'
   image: 'Dockerfile'

@@ -26,7 +26,15 @@ git fetch upstream
 
 # Merge the branches and commits from the upstream
 git checkout $INPUT_FORK_BRANCH
-git merge upstream/$INPUT_UPSTREAM_BRANCH -v
+
+case "$INPUT_METHOD" in
+    "rebase")
+        git rebase upstream/$INPUT_UPSTREAM_BRANCH -v
+        ;;
+    *)
+        git merge upstream/$INPUT_UPSTREAM_BRANCH -v
+        ;;
+esac
 
 git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 
