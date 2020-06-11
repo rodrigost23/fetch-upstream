@@ -25,10 +25,10 @@ git remote -v
 git fetch upstream
 
 # Merge the branches and commits from the upstream
-git checkout master
-git merge upstream/master -v
+git checkout $INPUT_FORK_BRANCH
+git merge upstream/$INPUT_UPSTREAM_BRANCH -v
 
 git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 
 # Push the updated master to your forked remote repository
-git push -u origin master
+git push -u origin $INPUT_FORK_BRANCH

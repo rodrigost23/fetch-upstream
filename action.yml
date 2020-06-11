@@ -4,6 +4,15 @@ author: 'Brian Douglas'
 inputs:
   upstream:
     description: 'The upstream for your fork'
+    required: true
+  upstream_branch:
+    description: 'The upstream branch to fetch'
+    required: false
+    default: 'master'
+  fork_branch:
+    description: 'The branch in your fork to push to'
+    required: false
+    default: 'master'
 runs:
   using: 'docker'
   image: 'Dockerfile'
